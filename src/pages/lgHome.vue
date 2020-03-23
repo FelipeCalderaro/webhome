@@ -261,7 +261,7 @@ export default {
       })
     },
     getInfo () {
-      Axios.get('http://10.0.0.101:34939/room/info').then((response) => {
+      Axios.get('http://191.178.162.189:8080/room/info').then((response) => {
         this.infos = response.data.info
 
         this.dailyConsume.data.datasets = response.data.info.datasets
@@ -269,16 +269,6 @@ export default {
         setTimeout(() => {
           this.createChart(this.dailyConsume)
         }, 500)
-      }).catch(() => {
-        Axios.get('http://191.178.162.189:8080/room/info').then((response) => {
-          this.infos = response.data.info
-
-          this.dailyConsume.data.datasets = response.data.info.datasets
-          this.currentPayment = response.data.info.payment.bill / 1000
-          setTimeout(() => {
-            this.createChart(this.dailyConsume)
-          }, 500)
-        })
       })
     },
     createChart (chartData) {
