@@ -166,7 +166,6 @@ module.exports = function (ctx) {
         // Windows only
         // win32metadata: { ... }
       },
-
       builder: {
         // https://www.electron.build/configuration/configuration
 
