@@ -268,7 +268,7 @@ export default {
       }).catch(() => { return false })
     },
     getInfo () {
-      Axios.get('http://10.0.0.101:34939/room/info').then(
+      Axios.get('http://191.178.162.189:8080/room/info').then(
         (response) => {
           this.infos = response.data.info
 

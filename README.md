@@ -1,6 +1,6 @@
-# Quasar App (roau)
+# Aldonoah - A Quasar App
 
-a room automation viewer and controller
+Room automation viewer and controller for those who can rule ...
 
 ## Install the dependencies
 ```bash

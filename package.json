@@ -1,8 +1,8 @@
 {
-  "name": "roau",
+  "name": "aldonoah",
   "version": "0.0.1",
-  "description": "a room automation viewer and controller",
-  "productName": "Quasar App",
+  "description": "Room automation viewer and controller for those who can rule ...",
+  "productName": "Aldonoah Drive",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "felipecalderaro <j.felipe.calderaro@gmail.com>",
