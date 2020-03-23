@@ -234,12 +234,6 @@ export default {
   },
   methods: {
     changeState () {
-      var localResponse = this.changeStateLocal()
-      if (localResponse === false) {
-        this.changeStateWeb()
-      }
-    },
-    changeStateLocal () {
       Axios({
         method: 'post',
         url: 'http://10.0.0.101:34939/room/changeState',
@@ -251,25 +245,32 @@ export default {
           this.active = !this.active
         }
         return true
-      }).catch(() => { return false })
-    },
-    changeStateWeb () {
-      Axios({
-        method: 'post',
-        url: 'http://191.178.162.189:8080/room/changeState',
-        data: {
-          state: this.active
-        }
-      }).then((response) => {
-        if (response.status !== 200) {
-          this.active = !this.active
-        }
-        return true
-      }).catch(() => { return false })
+      }).catch(() => {
+        Axios({
+          method: 'post',
+          url: 'http://191.178.162.189:8080/room/changeState',
+          data: {
+            state: this.active
+          }
+        }).then((response) => {
+          if (response.status !== 200) {
+            this.active = !this.active
+          }
+          return true
+        })
+      })
     },
     getInfo () {
-      Axios.get('http://191.178.162.189:8080/room/info').then(
-        (response) => {
+      Axios.get('http://10.0.0.101:34939/room/info').then((response) => {
+        this.infos = response.data.info
+
+        this.dailyConsume.data.datasets = response.data.info.datasets
+        this.currentPayment = response.data.info.payment.bill / 1000
+        setTimeout(() => {
+          this.createChart(this.dailyConsume)
+        }, 500)
+      }).catch(() => {
+        Axios.get('http://191.178.162.189:8080/room/info').then((response) => {
           this.infos = response.data.info
 
           this.dailyConsume.data.datasets = response.data.info.datasets
@@ -278,6 +279,7 @@ export default {
             this.createChart(this.dailyConsume)
           }, 500)
         })
+      })
     },
     createChart (chartData) {
       const ctx = document.getElementById('day-consume-chart')
