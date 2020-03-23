@@ -236,7 +236,7 @@ export default {
     changeState () {
       Axios({
         method: 'post',
-        url: 'http://10.0.0.101:34939/room/changeState',
+        url: 'http://191.178.162.189:8080/room/changeState',
         data: {
           state: this.active
         }
@@ -245,23 +245,10 @@ export default {
           this.active = !this.active
         }
         return true
-      }).catch(() => {
-        Axios({
-          method: 'post',
-          url: 'http://191.178.162.189:8080/room/changeState',
-          data: {
-            state: this.active
-          }
-        }).then((response) => {
-          if (response.status !== 200) {
-            this.active = !this.active
-          }
-          return true
-        })
       })
     },
     getInfo () {
-      Axios.get('http://191.178.162.189:8080/room/info').then((response) => {
+      Axios.get('http://10.0.0.100:34939/room/info').then((response) => {
         this.infos = response.data.info
 
         this.dailyConsume.data.datasets = response.data.info.datasets
