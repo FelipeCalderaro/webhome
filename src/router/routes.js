@@ -1,14 +1,14 @@
 
 const routes = [
   {
-    path: '*',
+    path: '/home',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', name: 'home', component: () => import('pages/Index.vue') },
       { path: '/login', name: 'login', component: () => import('pages/login.vue') }
     ]
   }, {
-    path: '/room',
+    path: '*',
     component: () => import('layouts/logged.vue'),
     children: [
       { path: '', name: 'lg-home', component: () => import('pages/lgHome.vue') },
