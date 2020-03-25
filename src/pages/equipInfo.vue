@@ -6,7 +6,7 @@
       icon="arrow_back"
       round
       style="top:16px; left:16px;"
-      @input="back()"
+      :to="{name: 'lg-home'}"
     ></q-btn>
     <div class="row q-pt-md">
       <div class="column">
