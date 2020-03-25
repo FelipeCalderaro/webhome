@@ -9,6 +9,7 @@
         <q-btn
           flat
           label="Home"
+          :to="{name: 'lg-home'}"
         >
         </q-btn>
 

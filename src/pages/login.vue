@@ -89,7 +89,7 @@ export default {
       }).then((response) => {
         this.$refs.bar.stop()
         if (response.status === 200) {
-          if (response.data.status === 202) { this.$router.push({ name: 'lg-home' }) } else {
+          if (response.data.status === 202) { this.$router.replace({ name: 'lg-home' }) } else {
             console.log('não foi autorizado, login ou senha incorretos')
           }
         } else {
