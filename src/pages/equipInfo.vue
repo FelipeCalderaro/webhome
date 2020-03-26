@@ -101,7 +101,7 @@ export default {
 
       const ctx = document.getElementById('stream-chart')
       let numberOfCalls = 0
-      const source = new EventSource('http://10.0.0.100:34939/chart-data')
+      const source = new EventSource('http://191.178.162.189:8080/room/chart-data')
       source.onmessage = function (event) {
         const data = JSON.parse(event.data)
         if (numberOfCalls >= 9) {

@@ -268,7 +268,7 @@ export default {
     changeState () {
       Axios({
         method: 'post',
-        url: this.localChangeState, // 'http://191.178.162.189:8080/room/changeState',
+        url: this.webChangeState, // 'http://191.178.162.189:8080/room/changeState',
         data: {
           state: this.active
         }
@@ -280,7 +280,7 @@ export default {
     },
     getInfo () {
       this.loading = true
-      Axios.get(this.localGetInfo).then((response) => {
+      Axios.get(this.webGetInfo).then((response) => {
         this.infos = response.data.info
 
         this.dailyConsume.data.datasets = response.data.info.datasets
